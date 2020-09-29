@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolderRegistros> {
     Context context;
@@ -34,8 +33,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolderRegistro
         holder.RNombre.setText(ListaPersonas.get(position).getNombre());
         holder.RCorreo.setText(ListaPersonas.get(position).getCorreo());
         holder.RExp.setText(ListaPersonas.get(position).getExp());
-        holder.RAños.setText(ListaPersonas.get(position).getAños());
-        holder.RIntereses.setText(ListaPersonas.get(position).getIntereses());
+        //holder.RAños.setText(ListaPersonas.get(position).getAños());
+        //holder.RIntereses.setText(ListaPersonas.get(position).getIntereses());
     }
 
     @Override
@@ -48,11 +47,11 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolderRegistro
 
         public ViewHolderRegistros(@NonNull View itemView) {
             super(itemView);
-            RNombre = itemView.findViewById(R.id.RNombre);
-            RCorreo = itemView.findViewById(R.id.RCorreo);
-            RExp = itemView.findViewById(R.id.RExp);
-            RAños = itemView.findViewById(R.id.RAños);
-            RIntereses = itemView.findViewById(R.id.RIntereses);
+            RNombre = itemView.findViewById(R.id.Nombre);
+            RCorreo = itemView.findViewById(R.id.Correo);
+            RExp = itemView.findViewById(R.id.Exp);
+            RAños = itemView.findViewById(R.id.Años);
+            RIntereses = itemView.findViewById(R.id.Intereses);
 
 
         }

@@ -4,15 +4,15 @@ public class Persona {
     String Nombre;
     String Correo;
     String Exp;
-    String Años;
-    String Intereses;
+    //String Años;
+    //String Intereses;
 
-    public Persona(String nombre, String correo, String exp, String años, String intereses) {
+    public Persona(String Nombre, String Correo, String Exp) {
         this.Nombre = Nombre;
         this.Correo = Correo;
         this.Exp = Exp;
-        this.Años = Años;
-        this.Intereses = Intereses;
+        //this.Años = Años;
+        //this.Intereses = Intereses;
     }
 
     public String getNombre() {
@@ -39,7 +39,7 @@ public class Persona {
         this.Exp = Exp;
     }
 
-    public String getAños() {
+    /*public String getAños() {
         return Años;
     }
 
@@ -53,5 +53,5 @@ public class Persona {
 
     public void setIntereses(String intereses) {
         this.Intereses = Intereses;
-    }
+    }*/
 }
