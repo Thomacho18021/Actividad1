@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -52,10 +53,24 @@ public class GenerarRegistro extends AppCompatActivity {
 
 
         rbAños.setEnabled(false);
+        etLenguaje.setEnabled(false);
+        btnRegistrarse.setEnabled(false);
 
-        //rbAños.setVisibility(View.GONE);
-        //txtRating.setVisibility(View.GONE);
-        //txtRating2.setVisibility(View.GONE);
+        rbAños.setVisibility(View.GONE);
+        txtRating.setVisibility(View.GONE);
+        txtRating2.setVisibility(View.GONE);
+
+
+        cbOtro.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+                    etLenguaje.setEnabled(true);
+                } else {
+                    etLenguaje.setEnabled(false);
+                }
+            }
+        });
 
 
         rgAños.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -63,16 +78,16 @@ public class GenerarRegistro extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == R.id.rbSi) {
                     rbAños.setEnabled(true);
-                    //rbAños.setVisibility(View.VISIBLE);
-                    //txtRating.setVisibility(View.VISIBLE);
-                    //txtRating2.setVisibility(View.VISIBLE);
+                    rbAños.setVisibility(View.VISIBLE);
+                    txtRating.setVisibility(View.VISIBLE);
+                    txtRating2.setVisibility(View.VISIBLE);
                     ValorRg = "Si";
 
 
                 } else {
-                    //rbAños.setVisibility(View.GONE);
-                    //txtRating.setVisibility(View.GONE);
-                    //txtRating2.setVisibility(View.GONE);
+                    rbAños.setVisibility(View.GONE);
+                    txtRating.setVisibility(View.GONE);
+                    txtRating2.setVisibility(View.GONE);
                     rbAños.setEnabled(false);
                     rbAños.setRating(0);
                     ValorRg = "No";
@@ -80,16 +95,22 @@ public class GenerarRegistro extends AppCompatActivity {
             }
         });
 
+
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (etNombre.getText().length() < 3) {
+                    etNombre.setError("El nombre debe tener minimo 3 caracteres");
+                    return;
+                }
                 Toast.makeText(GenerarRegistro.this, "Listo", Toast.LENGTH_LONG).show();
                 String Nombre = etNombre.getText().toString();
                 String Correo = etCorreo.getText().toString();
                 String Exp = ValorRg;
                 String Años = "";
                 if (Exp == "Si") {
-                    Años = String.valueOf(rbAños.getNumStars());
+                    Años = String.valueOf(rbAños.getRating());
                 } else {
                     Años = "0";
                 }
@@ -115,7 +136,6 @@ public class GenerarRegistro extends AppCompatActivity {
 
             }
         });
-
 
     }
 }
