@@ -37,7 +37,7 @@
         android:ems="10"
         android:hint="Ej.: Thomas Carrillo"
         android:inputType="textPersonName"
-        android:textColor="#787878"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/txtNombre"

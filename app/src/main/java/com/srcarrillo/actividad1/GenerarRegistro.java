@@ -86,8 +86,14 @@ public class GenerarRegistro extends AppCompatActivity {
                 Toast.makeText(GenerarRegistro.this, "Listo", Toast.LENGTH_LONG).show();
                 String Nombre = etNombre.getText().toString();
                 String Correo = etCorreo.getText().toString();
-                String Años = String.valueOf(rbAños.getNumStars());
                 String Exp = ValorRg;
+                String Años = "";
+                if (Exp == "Si") {
+                    Años = String.valueOf(rbAños.getNumStars());
+                } else {
+                    Años = "0";
+                }
+
                 String Intereses = "";
                 if (cbPython.isChecked()) {
                     Intereses = Intereses + "Python  ";
@@ -102,9 +108,9 @@ public class GenerarRegistro extends AppCompatActivity {
                     Intereses = Intereses + "HTML  ";
                 }
                 if (cbOtro.isChecked()) {
-                    Intereses = Intereses + etLenguaje.toString();
+                    Intereses = Intereses + etLenguaje.getText().toString();
                 }
-                Persona NPersona = new Persona(Nombre, Correo, Exp);
+                Persona NPersona = new Persona(Nombre, Correo, Exp, Años, Intereses);
                 ListaPersonas.add(NPersona);
 
             }
